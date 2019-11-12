@@ -10,5 +10,9 @@ module.exports = [
     {
         task: 'Frontend todo app',
         complete: false
+    },
+    {
+        task: 'Frontend todo app 2',
+        complete: false
     }
 ];

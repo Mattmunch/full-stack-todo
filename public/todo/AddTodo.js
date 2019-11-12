@@ -7,9 +7,15 @@ class AddTodo extends Component {
         
         form.addEventListener('submit', async event => {
             event.preventDefault();
+            const formData = new FormData(form);
+
+            const todo = {
+                task: formData.get('task-title'),
+                completed: false
+            };
 
             try {
-                await onAdd(catType);
+                await onAdd(todo);
                 // this only runs if no error:
                 form.reset();
                 document.activeElement.blur();
@@ -24,6 +30,8 @@ class AddTodo extends Component {
     renderHTML() {
         return /*html*/`
             <form>
+            <input id='task-title' name='task-title'>
+            <button id='submit-button'>Submit</button>
                 
             </form>
         `;
