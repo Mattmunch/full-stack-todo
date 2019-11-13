@@ -18,7 +18,7 @@ export function getTodos() {
 }
 
 export function addTodo(todo) {  
-    const url = `${URL}/todo`;
+    const url = `${URL}/todos`;
     return fetchWithError(url, {
         method: 'POST',
         headers: {

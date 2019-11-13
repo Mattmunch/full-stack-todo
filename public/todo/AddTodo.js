@@ -1,5 +1,6 @@
 import Component from '../Component.js';
 
+
 class AddTodo extends Component {
 
     onRender(form) {
@@ -11,9 +12,9 @@ class AddTodo extends Component {
 
             const todo = {
                 task: formData.get('task-title'),
-                completed: false
+                complete: false
             };
-
+            console.log(todo);
             try {
                 await onAdd(todo);
                 // this only runs if no error:
