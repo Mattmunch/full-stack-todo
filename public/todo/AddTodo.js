@@ -25,6 +25,7 @@ class AddTodo extends Component {
                 // nothing to do as App will show error,
                 // but will keep form from clearing...
             }
+            document.location.reload(false);
         });
     }
 
