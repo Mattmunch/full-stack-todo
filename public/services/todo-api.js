@@ -40,6 +40,28 @@ export function updateTodo(todo) {
     
 }
 
+export function signUp(user) {
+    const url = `${URL}/auth/signup`;
+    return fetchWithError(url, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(user)
+    });
+}
+
+export function signIn(credentials) {
+    const url = `${URL}/auth/signin`;
+    return fetchWithError(url, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(credentials)
+    });
+}
+
 export function removeTodo(todoId) {  
     const url = `${URL}/${todoId}`;
     return fetchWithError(url, {

@@ -3,7 +3,6 @@ import Header from '../common/Header.js';
 import SignUp from '../home/SignUp.js';
 import SignIn from '../home/SignIn.js';
 import { signUp as userSignUp, signIn as userSignIn } from '../services/todo-api.js';
-import { EINPROGRESS } from 'constants';
 
 function success(user) {
     localStorage.setItem('TOKEN', user.token);
@@ -34,7 +33,7 @@ class App extends Component {
             onSignUp: async newUser => {
                 errors.textContent = '';
                 try {
-                    const user = await userSignIn(credentials);
+                    const user = await userSignIn(newUser);
                     success(user);
                 }
                 catch (err) {
@@ -67,8 +66,8 @@ class App extends Component {
         });
         const switchToSignUp = dom.querySelector('#signup-button');
         switchToSignUp.addEventListener('click', () => {
-            signUpContainer.classlist.remove('no-display');
-            signInContainer.classlist.add('no-display');
+            signUpContainer.classList.remove('no-display');
+            signInContainer.classList.add('no-display');
         });
     }
 
